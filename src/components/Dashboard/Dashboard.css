@@ -1,0 +1,21 @@
+.top-bar {
+  height: 7vh;
+  background-color: salmon;
+  color: green;
+  min-height: 50px;
+  margin: auto;
+  display: flex;
+}
+.top-bar h1 {
+  align-items: center;
+  margin: auto;
+}
+.nav-container {
+  background-color: rgb(35, 10, 94);
+  min-height: 100vh;
+}
+
+.view-container {
+  background-color: slategray;
+  min-height: 93vh;
+}
