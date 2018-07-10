@@ -6,6 +6,7 @@ const passport = require("passport");
 const morgan = require("morgan");
 const massive = require("massive");
 const routes = require("./routes");
+const socket = require("socket.io");
 
 massive(process.env.CONNECTION_STRING).then(db => {
   app.set("db", db);
@@ -15,6 +16,11 @@ massive(process.env.CONNECTION_STRING).then(db => {
 const strategy = require("./strategy");
 
 const app = express();
+
+const PORT = process.env.PORT || 3001;
+server = app.listen(PORT, () => {
+  console.log(`I am listening on port ${PORT}`);
+});
 
 app.use(json());
 app.use(morgan("tiny"));
@@ -111,9 +117,17 @@ app.get("/user/info", (req, res, next) => {
   // console.log(req.session.user.id);
 });
 
-routes(app);
+//Socket.io Chat
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`I am listening on port ${PORT}`);
+const io = socket(server);
+
+io.on("connection", socket => {
+  console.log(socket.id);
+
+  socket.on("SEND_MESSAGE", function(data) {
+    io.emit("RECEIVE_MESSAGE", data);
+  });
 });
+
+//End of Socket.io Chat
+routes(app);

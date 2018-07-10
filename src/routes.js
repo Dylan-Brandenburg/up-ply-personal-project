@@ -8,11 +8,12 @@ import Teams from "./components/Dashboard/Teams/Teams";
 import Createteam from "./components/Dashboard/Createteam/Createteam";
 import Settings from "./components/Dashboard/Settings/Settings";
 import DashboardView from "./components/Dashboard/DashboardView/DashboardView";
+import Chat from "./components/Chat/Chat";
 
 export default (
   <Switch>
     <Route exact path="/" component={Splash} />
-    <Route path="/createteam" component={Createteam} />
+    <Route path="/Chat" component={Chat} />
 
     <Route
       path="/dashboard/"
