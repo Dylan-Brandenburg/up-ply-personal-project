@@ -2,7 +2,14 @@ body {
   background-image: url("../../assets/laptop.jpg");
 }
 
-.login-container {
-  color: white;
-  margin-top: 50vh;
+.logo {
+  background-color: green;
+}
+
+.title {
+  background-color: rebeccapurple;
+}
+
+.loginArea {
+  background-color: salmon;
 }

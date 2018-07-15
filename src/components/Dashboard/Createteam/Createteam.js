@@ -33,8 +33,10 @@ class Createteam extends Component {
                 onChange={e => this.setState({ newTeamName: e.target.value })}
                 type="text"
               />
-              <Button>Submit</Button>
             </form>
+            <Link to="/dashboard/teams">
+              <Button>Submit</Button>
+            </Link>
           </div>
         </div>
       </div>

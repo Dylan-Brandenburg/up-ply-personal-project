@@ -1,4 +1,4 @@
-.task {
+.team {
   display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
@@ -9,5 +9,5 @@
   padding: 10px;
   width: 150px;
   height: 150px; }
-  .task .trash {
+  .team .trash {
     margin-left: 125px; }

@@ -1,0 +1,15 @@
+.chatTitle {
+  color: black;
+  background-color: white; }
+
+.chat-container {
+  color: black;
+  background-color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 350px;
+  position: relative; }
+  .chat-container .footer {
+    display: inline-flex;
+    color: blue;
+    height: auto; }

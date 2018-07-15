@@ -6,9 +6,11 @@ const initialState = {
   error: "",
   teams: [],
   projects: [],
-  userProfile: {}
+  userProfile: {},
+  everyone: []
 };
 
+const GET_EVERYONE = "GET_EVERYONE";
 const GET_USER = "GET_USER";
 const GET_PROJECTS = "GET_PROJECTS";
 const GET_TEAMS = "GET_TEAMS";
@@ -16,12 +18,19 @@ const DELETE_TEAM = "DELETE_TEAM";
 const CREATE_TEAM = "CREATE_TEAM";
 const UPDATE_USER = "UPDATE_USER";
 
+export const getEveryone = () => {
+  return {
+    type: GET_EVERYONE,
+    payload: axios.get("/api/getEveryone")
+  };
+};
 export const getUser = () => {
   return {
     type: GET_USER,
     payload: axios.get(`/api/user`)
   };
 };
+
 export const updateUser = obj => {
   return {
     type: UPDATE_USER,
@@ -59,6 +68,13 @@ export const createTeam = newTeamName => {
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
+    // Get all Users
+    case "GET_EVERYONE_PENDING":
+      return { ...state, loading: true };
+    case "GET_EVERYONE_FULFILLED":
+      return { ...state, loading: false, everyone: action.payload.data };
+    case "GET_EVERYONE_REJECTED":
+      return { ...state, loading: false, error: action.payload.data };
     // Get user on session
     case "GET_USER_PENDING":
       return { ...state, loading: true };
@@ -82,7 +98,7 @@ export default function userReducer(state = initialState, action) {
     // Projects from user on session
     case "GET_PROJECTS_PENDING":
       return { ...state, loading: true };
-    case "GET_PROJEXCTS_FULFILLED":
+    case "GET_PROJECTS_FULFILLED":
       return { ...state, loading: false, projects: action.payload.data };
     case "GET_PROJECTS_REJECTED":
       return { ...state, loading: false, error: action.payload.data };

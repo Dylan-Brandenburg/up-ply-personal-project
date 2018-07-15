@@ -19,3 +19,11 @@
   background-color: slategray;
   min-height: 93vh;
 }
+.chatBox {
+  position: fixed;
+  bottom: 50px;
+  height: 380px;
+  width: 330px;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}

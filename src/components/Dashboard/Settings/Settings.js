@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../../../redux/ducks/userReducer";
+import "./Settings.css";
 
 class Settings extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Settings extends Component {
       first_name: this.props.user[0].first_name,
       last_name: this.props.user[0].last_name,
       email: this.props.user[0].email,
-      role: this.props.user[0].role
+      role: this.props.user[0].role,
+      profile_picture: this.props.user[0].profile_picture
     };
   }
   onSubmitHandler = e => {
@@ -28,6 +30,14 @@ class Settings extends Component {
         <div>
           <ul>
             <form onSubmit={this.onSubmitHandler}>
+              <li>
+                {" "}
+                <img
+                  className="profilePicture"
+                  src={this.state.profile_picture}
+                  alt="User Profile Picture"
+                />
+              </li>
               <li>
                 First Name: {first_name}{" "}
                 <input

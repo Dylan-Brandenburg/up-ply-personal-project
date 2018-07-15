@@ -1,5 +1,5 @@
 const {
-  getUsers,
+  getEveryone,
   getCurrentUser,
   createTeam,
   getTeams,
@@ -12,8 +12,8 @@ const {
 
 module.exports = app => {
   // Users
+  app.get("/api/getEveryone", getEveryone);
   app.get("/api/user", getCurrentUser);
-  app.get("/api/users", getUsers);
   app.put("/api/updateUser", updateUser);
   // Teams
   app.post("/api/createTeam", createTeam);

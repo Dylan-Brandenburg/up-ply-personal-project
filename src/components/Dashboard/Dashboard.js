@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 // import Projectview from "./Projectview/Projectview";
 
 import Navbar from "../Navbar/Navbar";
+import Chat from "../Chat/Chat";
 import "./Dashboard.css";
 import { getUser, getTeams } from "../../redux/ducks/userReducer";
 import DashboardView from "./DashboardView/DashboardView";
@@ -29,7 +30,7 @@ class Dashboard extends Component {
           </Grid>
           <Grid item xs={9}>
             <div className="top-bar">
-              <h1 align={"center"}>Dashboard</h1>
+              <h1 align={"center"}>Team Name</h1>
             </div>
             <Grid container spacing={0}>
               <Grid item xs={12} className={"view-container"}>
@@ -38,6 +39,9 @@ class Dashboard extends Component {
             </Grid>
           </Grid>
         </Grid>
+        <div className="chatBox">
+          <Chat />
+        </div>
       </div>
     );
   }

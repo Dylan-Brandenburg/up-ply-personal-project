@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Team from "./Team/Team";
 import { connect } from "react-redux";
-import { getTeams, deleteTeam } from "../../../redux/ducks/userReducer";
+import { getTeams, deleteTeam } from "../../../../redux/ducks/userReducer";
+import "./Teams.css";
+import { FontAwesomeIcon } from "../../../../../node_modules/@fortawesome/react-fontawesome";
 
 class Teams extends Component {
   componentDidMount() {
@@ -18,7 +21,12 @@ class Teams extends Component {
       <div>
         <h1>Teams</h1>
         <hr />
-        <div>{teamList}</div>
+        <div className="Teamcontainer">
+          <Link to="/dashboard/createteam">
+            <FontAwesomeIcon icon="plus" />
+          </Link>
+          <div className="Teamlist">{teamList}</div>
+        </div>
       </div>
     );
   }

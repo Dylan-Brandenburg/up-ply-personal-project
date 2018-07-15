@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTasks } from "../../../redux/ducks/taskReducer";
 import Tasksview from "../DashboardView/Taskview/Taskview";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./Tasks.css";
 
 class Tasks extends Component {
   componentDidMount() {
@@ -13,20 +15,22 @@ class Tasks extends Component {
   render() {
     let taskList = this.props.tasks.map((task, i) => {
       return (
-        <div key={i}>
-          <p>
-            {task.task_name}
-            {task.task_desc}
-            {task.status}
-          </p>
+        <div key={i} className="task">
+          <div className="trash">
+            {" "}
+            <FontAwesomeIcon icon="trash-alt" />
+          </div>
+          <div>
+            <p>task:{task.task_name}</p>
+            <p>Desc:{task.task_desc}</p>
+            <p>Status:{task.status}</p>
+          </div>
         </div>
       );
     });
 
     return (
       <div>
-        {" "}
-        <h1>Tasks</h1>
         <div>{taskList}</div>
       </div>
     );

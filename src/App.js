@@ -11,12 +11,25 @@ import {
   faUsers,
   faFolderOpen,
   faClipboardList,
-  faCog
+  faCog,
+  faTrash,
+  faTrashAlt,
+  faPlus,
+  faToolbox
 } from "@fortawesome/free-solid-svg-icons";
 
 import store from "./redux/store";
 import routes from "./routes";
-library.add(faTachometerAlt, faUsers, faFolderOpen, faClipboardList, faCog);
+library.add(
+  faTachometerAlt,
+  faUsers,
+  faFolderOpen,
+  faClipboardList,
+  faCog,
+  faTrashAlt,
+  faPlus,
+  faToolbox
+);
 class App extends Component {
   // const { REACT_APP_CLIENT_HOST } = process.env;
   render() {

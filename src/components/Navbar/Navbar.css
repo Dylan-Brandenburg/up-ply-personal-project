@@ -3,3 +3,6 @@
   text-align: center; }
   .nav-bar a {
     color: white; }
+  .nav-bar .profilePicture {
+    width: 75px;
+    height: auto; }

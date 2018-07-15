@@ -69,14 +69,6 @@ function isLoggedIn(req, res, next) {
   }
 }
 
-// app.get(
-//   "/login",
-//   passport.authenticate("auth0", {
-//     successRedirect: "http://localhost:3000/#/dashboard/",
-//     failureRedirect: "/login",
-//     failureFlash: true
-//   })
-// );
 app.get("/login", (req, res, next) => {
   passport.authenticate("auth0", (err, user, info) => {
     const db = req.app.get("db");
@@ -113,9 +105,18 @@ app.get("/me", (req, res, next) => {
   return res.status(200).json(user);
 });
 
-app.get("/user/info", (req, res, next) => {
-  // console.log(req.session.user.id);
-});
+//React s3
+app.use(
+  "/s3",
+  require("react-s3-uploader/s3router")({
+    bucket: "upply-userprofile",
+    // region: 'us-east-1', //optional
+    signatureVersion: "v4", //optional (use for some amazon regions: frankfurt and others)
+    headers: { "Access-Control-Allow-Origin": "*" }, // optional
+    ACL: "private", // this is default
+    uniquePrefix: true // (4.0.2 and above) default is true, setting the attribute to false preserves the original filename in S3
+  })
+);
 
 //Socket.io Chat
 
