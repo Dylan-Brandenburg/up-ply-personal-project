@@ -1,29 +1,11 @@
-.top-bar {
-  height: 7vh;
-  background-color: salmon;
-  color: green;
-  min-height: 50px;
-  margin: auto;
-  display: flex;
-}
-.top-bar h1 {
-  align-items: center;
-  margin: auto;
-}
-.nav-container {
-  background-color: rgb(35, 10, 94);
-  min-height: 100vh;
-}
-
-.view-container {
-  background-color: slategray;
-  min-height: 93vh;
-}
-.chatBox {
-  position: fixed;
-  bottom: 50px;
-  height: 380px;
-  width: 330px;
-  border-left: 1px solid black;
-  border-top: 1px solid black;
-}
+/* HSL */
+/* RGB */
+.dashboard-container {
+  background-color: #6d16a3; }
+  .dashboard-container .nav-container {
+    background-color: #6d16a3; }
+  .dashboard-container .top-bar {
+    color: white; }
+  .dashboard-container .view-container {
+    background-color: #ab81cd;
+    padding: 50px; }

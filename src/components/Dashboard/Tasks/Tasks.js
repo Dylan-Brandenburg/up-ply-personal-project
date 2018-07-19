@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTasks } from "../../../redux/ducks/taskReducer";
+import Task from "./Task/Task";
 import Tasksview from "../DashboardView/Taskview/Taskview";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Tasks.css";
 
 class Tasks extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   componentDidMount() {
     this.props.getTasks().then(() => {
       console.log(this.props);
@@ -14,21 +19,8 @@ class Tasks extends Component {
 
   render() {
     let taskList = this.props.tasks.map((task, i) => {
-      return (
-        <div key={i} className="task">
-          <div className="trash">
-            {" "}
-            <FontAwesomeIcon icon="trash-alt" />
-          </div>
-          <div>
-            <p>task:{task.task_name}</p>
-            <p>Desc:{task.task_desc}</p>
-            <p>Status:{task.status}</p>
-          </div>
-        </div>
-      );
+      return <Task key={i} task={task} />;
     });
-
     return (
       <div>
         <div>{taskList}</div>

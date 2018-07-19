@@ -1,6 +1,12 @@
+$color1: rgba(109, 22, 163, 1);
+$color2: rgba(87, 74, 226, 1);
+$color3: rgba(34, 42, 104, 1);
+$color4: rgba(171, 129, 205, 1);
+$color5: rgba(226, 173, 242, 1);
 body {
-  background-color: #222a68;
-  min-height: 100%; }
+  background-color: $color3;
+  min-height: 100%;
+}
 
 .splash-header {
   padding: 20px;
@@ -10,54 +16,62 @@ body {
   align-content: center;
   background-color: white;
   height: 115px;
-  position: relative; }
-  .splash-header .splash-logo {
-    z-index: 2; }
-  .splash-header .splash-headerText {
+  position: relative;
+  .splash-logo {
+    z-index: 2;
+  }
+  .splash-headerText {
     align-self: flex-start;
     z-index: 2;
     color: white;
     align-content: center;
-    margin-top: 40px; }
-  .splash-header .splash-login {
-    z-index: 2; }
-
+    margin-top: 40px;
+  }
+  .splash-login {
+    z-index: 2;
+  }
+}
 .splash-angled {
   position: absolute;
   height: 300px;
   width: 100%;
   left: 0px;
   top: 0px;
-  background: linear-gradient(#6d16a3, #574ae2);
+  background: linear-gradient($color1, $color2);
   transform: skewY(10deg);
-  z-index: 1; }
-
+  z-index: 1;
+}
 .spash-otherAngled {
   position: absolute;
   height: 300px;
   width: 100%;
   left: 0px;
   bottom: 60vh;
-  background: whitesmoke;
+  background: rgb(245, 245, 245);
   transform-origin: right top;
   transform: skew(0deg, -20deg);
-  z-index: 0; }
-
+  z-index: 0;
+}
 .splash-content {
   display: flex;
   background-color: white;
   min-height: 100vh;
   flex-direction: column;
-  justify-content: center; }
-  .splash-content .splash-background {
+  justify-content: center;
+
+  .splash-background {
     display: flex;
     background-image: url("../../assets/laptop.jpg");
     height: 400px;
     width: auto;
-    opacity: 0.5; }
-  .splash-content span {
+    opacity: 0.5;
+  }
+  span {
     color: white;
     height: 100px;
     margin: auto;
     width: 300px;
-    z-index: 1; }
+
+    z-index: 1;
+  }
+}

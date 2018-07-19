@@ -3,7 +3,7 @@
 -- where id = $1;
 
 
-SELECT pr.*, u.id
+SELECT pr.*, u.id AS user_id
 FROM projects pr
     JOIN proj_user pu ON pu.proj_id = pr.id
     JOIN users u ON pu.user_id = u.id

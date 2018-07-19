@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUserProjects } from "../../../redux/ducks/projectReducer";
+import { getTasks } from "../../../redux/ducks/taskReducer";
+import "./Projects.css";
 
 class Projects extends Component {
   constructor(props) {
@@ -9,18 +11,26 @@ class Projects extends Component {
   }
   componentDidMount() {
     this.props.getUserProjects().then(() => {
-      console.log(this.props.userProjects);
+      console.log(this.props);
     });
   }
   render() {
-    let projectList = this.props.userProjects.map((projects, i) => {
+    let { task_name, assigned_proj_id } = this.props.tasks;
+    console.log(this.props.tasks);
+    let projectList = this.props.userProjects.map((project, i) => {
+      console.log({ project });
       return (
-        <div key={i}>
+        <div key={i} className={"project-container"}>
           <p>
-            {projects.project_name}
-            {projects.project_desc}
-            {projects.team_id}
+            {project.id}
+            {project.project_name}
           </p>
+          <p> {project.project_desc}</p>
+          <p>Tasks</p>
+          <hr />
+          {this.props.tasks
+            .filter(task => task.assigned_proj_id === project.id)
+            .map(task => <p key={task.id}>{task.task_name}</p>)}
         </div>
       );
     });
@@ -38,10 +48,11 @@ class Projects extends Component {
 
 function mapStateToProps(state) {
   return {
-    ...state.projectReducer
+    ...state.projectReducer,
+    ...state.taskReducer
   };
 }
 export default connect(
   mapStateToProps,
-  { getUserProjects }
+  { getTasks, getUserProjects }
 )(Projects);

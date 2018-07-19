@@ -51,13 +51,10 @@ class Chat extends React.Component {
   }
 
   render() {
-    let first_name = this.props.user[0]
-      ? this.props.user[0].first_name
-      : "First";
-
     return (
       <div>
         <div className="chatTitle">Team Chat</div>
+
         <div className="chat-container">
           <hr />
           <div className="messages">

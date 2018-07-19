@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import ReactS3Uploader from "react-s3-uploader";
 import { updateUser } from "../../../redux/ducks/userReducer";
 import "./Settings.css";
 
@@ -18,11 +19,23 @@ class Settings extends Component {
     e.preventDefault();
     this.props.updateUser(this.state);
   };
+  //React s3 picture upload
+  onPictureUpload = s3 => {
+    //check if photo state is empty, conditionally update profile: if photo state empty, then don't update photo.
+    this.setState({
+      profile_picture: `https://s3.us-east-2.amazonaws.com/upply-userprofile/${
+        s3.filename
+      }`
+    });
+    {
+      console.log(this.state.profile_picture);
+    }
+  };
   render() {
     {
       console.log(this.props.user);
     }
-    let { last_name, first_name, email, role } = this.state;
+    let { last_name, first_name, email, role, profile_picture } = this.state;
 
     return (
       <div>
@@ -80,6 +93,27 @@ class Settings extends Component {
                   type="text"
                 />
               </li>
+            </form>
+            <form onSubmit={this.onSubmitHandler}>
+              <label className="ProfileCreate__uploader">
+                UPLOAD
+                <ReactS3Uploader
+                  signingUrl="/s3/sign"
+                  signingUrlMethod="GET"
+                  accept="image/*"
+                  s3path=""
+                  onProgress={this.progress}
+                  onFinish={this.onPictureUpload}
+                  contentDisposition="auto"
+                  scrubFilename={filename =>
+                    filename.replace(/[^\w\d_\-.]+/gi, "")
+                  }
+                  inputRef={cmp => (this.uploadInput = cmp)}
+                  server={process.env.REACT_APP_DEV_HOST}
+                  autoUpload
+                />
+              </label>
+              <button> Submit</button>
             </form>
           </ul>
         </div>

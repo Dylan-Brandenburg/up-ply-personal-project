@@ -6,3 +6,9 @@
   .nav-bar .profilePicture {
     width: 75px;
     height: auto; }
+  .nav-bar .Navbar-logo {
+    height: 100px;
+    margin: auto; }
+
+.navbar-chat {
+  margin-top: 100px; }

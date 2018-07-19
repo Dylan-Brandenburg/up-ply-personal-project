@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
+import logo from "../../logo.png";
 import ExitToApp from "@material-ui/icons/ExitToApp";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/ducks/userReducer";
+
 import Chat from "../Chat/Chat";
 import "./Navbar.css";
 
@@ -26,7 +28,7 @@ class Navbar extends Component {
         <div className="nav-bar">
           <Grid container spacing={0}>
             <Grid item xs={12}>
-              <h1>UpPly</h1>
+              <img src={logo} className="Navbar-logo" alt="logo" />
               <div className="account-image">
                 <img
                   className="profilePicture"
@@ -81,6 +83,9 @@ class Navbar extends Component {
               </div>
             </Grid>
           </Grid>
+        </div>
+        <div className="navbar-chat">
+          <Chat />
         </div>
       </div>
     );

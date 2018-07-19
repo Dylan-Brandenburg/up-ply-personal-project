@@ -4,7 +4,7 @@ import Team from "./Team/Team";
 import { connect } from "react-redux";
 import { getTeams, deleteTeam } from "../../../../redux/ducks/userReducer";
 import "./Teams.css";
-import { FontAwesomeIcon } from "../../../../../node_modules/@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Teams extends Component {
   componentDidMount() {
@@ -20,11 +20,11 @@ class Teams extends Component {
     return (
       <div>
         <h1>Teams</h1>
-        <hr />
         <div className="Teamcontainer">
           <Link to="/dashboard/createteam">
             <FontAwesomeIcon icon="plus" />
           </Link>
+
           <div className="Teamlist">{teamList}</div>
         </div>
       </div>
@@ -33,7 +33,8 @@ class Teams extends Component {
 }
 function mapStateToProps(state) {
   return {
-    teams: state.userReducer.teams
+    teams: state.userReducer.teams,
+    user: state.userReducer.user
   };
 }
 export default connect(

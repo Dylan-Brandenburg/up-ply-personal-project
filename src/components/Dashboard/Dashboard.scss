@@ -11,27 +11,18 @@ $color2: rgba(87, 74, 226, 1);
 $color3: rgba(34, 42, 104, 1);
 $color4: rgba(171, 129, 205, 1);
 $color5: rgba(226, 173, 242, 1);
-.App {
-  text-align: center;
-  background-color: $color3;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 125px;
-}
+.dashboard-container {
+  background-color: $color1;
+  .nav-container {
+    background-color: $color1;
+  }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+  .top-bar {
+    color: white;
+  }
+  .view-container {
+    background-color: $color4;
+    padding: 50px;
+  }
 }

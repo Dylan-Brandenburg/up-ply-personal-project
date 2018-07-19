@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import userReducer, { getEveryone } from "../../../../redux/ducks/userReducer";
+import userReducer, {
+  getEveryone,
+  getTeams
+} from "../../../../redux/ducks/userReducer";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import tasksReducer from "../../../../redux/ducks/taskReducer";
@@ -11,7 +14,8 @@ class Users extends Component {
     this.state = {};
   }
   componentDidMount() {
-    this.props.getEveryone().then(() => {
+    this.props.getEveryone();
+    this.props.getTeams().then(() => {
       console.log(this.props);
     });
   }
@@ -19,12 +23,13 @@ class Users extends Component {
     let usersList = this.props.everyone.map((user, i) => {
       return (
         <div key={user.id}>
-          <p>{user.id}</p>
+          <p>User id:{user.id}</p>
           <p>{user.first_name}</p>
           <p>{user.last_name}</p>
           <p>{user.role}</p>
           <p>{user.email}</p>
           <p>{user.admin}</p>
+          <hr />
         </div>
       );
     });
@@ -32,7 +37,6 @@ class Users extends Component {
     return (
       <div>
         <h1>Users</h1>
-        <hr />
         <div>{usersList}</div>
       </div>
     );
@@ -40,10 +44,11 @@ class Users extends Component {
 }
 function mapStateToProps(state) {
   return {
-    everyone: state.userReducer.everyone
+    everyone: state.userReducer.everyone,
+    teams: state.userReducer.teams
   };
 }
 export default connect(
   mapStateToProps,
-  { getEveryone }
+  { getEveryone, getTeams }
 )(Users);

@@ -23,7 +23,7 @@ class Dashboard extends Component {
     let id = this.props.user[0] ? this.props.user[0].id : "Loading";
 
     return (
-      <div>
+      <div className="dashboard-container">
         <Grid container spacing={0}>
           <Grid item xs={3} className={"nav-container"}>
             <Navbar />
@@ -39,9 +39,6 @@ class Dashboard extends Component {
             </Grid>
           </Grid>
         </Grid>
-        <div className="chatBox">
-          <Chat />
-        </div>
       </div>
     );
   }

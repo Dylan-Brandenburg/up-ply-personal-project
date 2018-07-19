@@ -11,5 +11,10 @@
   position: relative; }
   .chat-container .footer {
     display: inline-flex;
+    width: 330px;
     color: blue;
     height: auto; }
+    .chat-container .footer .form-conrol {
+      width: 330px; }
+    .chat-container .footer input {
+      width: 100px; }
