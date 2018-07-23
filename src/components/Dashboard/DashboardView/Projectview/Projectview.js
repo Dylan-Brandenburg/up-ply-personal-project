@@ -26,7 +26,7 @@ class Projectview extends Component {
       <div className="Projectview-body">
         <div>
           <h1>Recent projects</h1>
-          <div>{projectList}</div>
+          <div className="projects__list">{projectList}</div>
         </div>
       </div>
     );

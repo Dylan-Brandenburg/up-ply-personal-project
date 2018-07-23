@@ -7,15 +7,16 @@
   justify-content: space-around;
   flex-direction: row;
   border-radius: 20px; }
-  .Projectview-body .projectview-cards {
-    box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
-    padding: 5px;
-    border: 3px solid #dedede;
-    color: white;
-    display: inline-block;
-    justify-content: space-around;
-    width: 175px;
-    height: 175px;
-    margin: 10px;
-    align-items: center;
-    border-radius: 20px; }
+  .Projectview-body .projects__list {
+    display: flex;
+    justify-content: space-around; }
+    .Projectview-body .projects__list .projectview-cards {
+      box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
+      padding: 5px;
+      border: 3px solid #dedede;
+      color: white;
+      width: 175px;
+      height: 175px;
+      margin: 10px;
+      align-items: center;
+      border-radius: 20px; }

@@ -9,14 +9,18 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 25px;
+  .tasks_list {
+    display: flex;
+    justify-content: space-around;
+  }
   .taskview-cards {
     box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
-    padding: 20px;
+    padding: 5px;
     border: 3px solid #dedede;
     // border-style: outset;
     color: white;
     justify-content: space-around;
-    width: 200px;
+    width: 175px;
     // width: auto;
     min-height: 175px;
     height: auto;

@@ -9,13 +9,16 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 25px; }
+  .taskview-body .tasks_list {
+    display: flex;
+    justify-content: space-around; }
   .taskview-body .taskview-cards {
     box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
-    padding: 20px;
+    padding: 5px;
     border: 3px solid #dedede;
     color: white;
     justify-content: space-around;
-    width: 200px;
+    width: 175px;
     min-height: 175px;
     height: auto;
     margin: 10px;

@@ -1,15 +1,13 @@
 .projlist {
-  // display: inline-flex;
-  // flex-direction: column;
-  // justify-content: space-around;
-  // align-content: center;
-  // margin: 10px;
-  // border: 3px solid #dedede;
-  // border-radius: 25px;
-  // padding: 10px;
-
-  // text-decoration: none;
-  // color: black;
-  // box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
-  // transition: 0.5s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  margin: 10px;
+  border-radius: 25px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  transition: 0.5s;
+  flex-wrap: wrap;
 }

@@ -126,7 +126,7 @@ class ProjList extends Component {
                     autoFocus
                     margin="dense"
                     id="name"
-                    label="Role"
+                    label=""
                     type="date"
                     value={this.state.due_date}
                     onChange={e => this.setState({ due_date: e.target.value })}

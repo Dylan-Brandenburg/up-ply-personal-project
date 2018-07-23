@@ -11,8 +11,8 @@ const initialState = {
   userTeam: [],
   currentTeamid: 0,
   newProj: {
-    project_name: "test",
-    project_desc: "test",
+    project_name: "Project Name",
+    project_desc: "Project description",
     team_id: 0
   }
 };

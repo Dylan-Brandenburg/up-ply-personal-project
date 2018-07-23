@@ -1,0 +1,12 @@
+.projlist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  margin: 10px;
+  border-radius: 25px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  transition: 0.5s;
+  flex-wrap: wrap; }

@@ -27,7 +27,7 @@ class Tasksview extends Component {
     return (
       <div className="taskview-body">
         <h1>Recent tasks </h1>
-        <div>{taskList}</div>
+        <div className="tasks_list">{taskList}</div>
       </div>
     );
   }
