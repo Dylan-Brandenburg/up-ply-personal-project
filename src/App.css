@@ -1,7 +1,8 @@
 /* RGB */
 .App {
   text-align: center;
-  background-color: #57344b; }
+  background-color: #57344b;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

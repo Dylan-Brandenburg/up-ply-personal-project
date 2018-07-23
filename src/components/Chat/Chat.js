@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import StayScrolled from "react-stay-scrolled";
 import io from "socket.io-client";
 import { getUser } from "../../redux/ducks/userReducer";
+import Button from "@material-ui/core/Button";
 
 import "./Chat.css";
 import axios from "axios";
@@ -78,11 +79,6 @@ class Chat extends React.Component {
     return (
       <div>
         <div className="chatTitle">Team Chat</div>
-        <div>
-          {" "}
-          <p>Open in new window</p>
-        </div>
-
         <div className="chat-container">
           <hr />
           <div className="messages">
@@ -103,7 +99,7 @@ class Chat extends React.Component {
           />
         </div>
         <div className="footer">
-          <input
+          <textarea
             type="text"
             placeholder="Message"
             className="form-control"
@@ -111,12 +107,12 @@ class Chat extends React.Component {
             onChange={ev => this.setState({ message: ev.target.value })}
           />
           <br />
-          <button
+          <Button
             onClick={this.sendMessage}
             className="btn btn-primary form-control"
           >
             Send
-          </button>
+          </Button>
         </div>
       </div>
     );

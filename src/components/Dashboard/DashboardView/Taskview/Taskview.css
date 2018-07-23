@@ -4,14 +4,13 @@
   height: 100%;
   width: auto;
   border-top: 2px solid whitesmoke;
-  display: flex;
   justify-content: space-around;
   flex-direction: row;
-  flex-wrap: wrap;
-  padding: 25px; }
+  flex-wrap: wrap; }
   .taskview-body .tasks_list {
     display: flex;
-    justify-content: space-around; }
+    justify-content: space-around;
+    flex-wrap: wrap; }
   .taskview-body .taskview-cards {
     box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
     padding: 5px;
@@ -20,11 +19,10 @@
     justify-content: space-around;
     width: 175px;
     min-height: 175px;
-    height: auto;
-    margin: 10px;
+    height: 175px;
+    margin: 5px;
     border-radius: 20px;
     align-items: center;
     border-radius: 20px;
     display: inline-block;
-    flex-grow: 2;
     flex-wrap: wrap; }

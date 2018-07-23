@@ -18,6 +18,7 @@ export const getTasks = () => {
   };
 };
 export const updateTask = (taskid, obj) => {
+  console.log(obj);
   return {
     type: UPDATE_TASK,
     payload: axios.put(`/api/updatetask/${taskid}`, obj)

@@ -22,7 +22,7 @@ class Tasks extends Component {
       return <Task key={i} task={task} />;
     });
     return (
-      <div className="task-container">
+      <div>
         <h1>My Tasks</h1>
         <div className="tasklist-container">{taskList}</div>
       </div>

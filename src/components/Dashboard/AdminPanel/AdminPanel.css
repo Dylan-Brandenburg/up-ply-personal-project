@@ -1,0 +1,7 @@
+.admin-panel {
+  color: white; }
+  .admin-panel a {
+    color: black;
+    margin: 20px; }
+    .admin-panel a:hover {
+      color: white; }

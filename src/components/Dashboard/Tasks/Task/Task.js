@@ -4,7 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import { connect } from "react-redux";
-import { updateTask } from "../../../../redux/ducks/taskReducer";
+import { updateTask, getTasks } from "../../../../redux/ducks/taskReducer";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -27,12 +27,20 @@ class Task extends Component {
     this.original = this.props.task;
   }
 
+  componentDidMount() {
+    console.log(this.state);
+  }
   handleClick = status => {
+    const { original, state } = this;
+    console.log({ original, state });
+
     this.setState({ task_status: status }, () => {
-      this.props.updateTask(this.props.task.id, {
-        ...this.original,
-        ...this.state
-      });
+      this.props
+        .updateTask(this.props.task.id, {
+          ...this.original,
+          ...this.state
+        })
+        .then(() => this.props.getTasks());
     });
   };
 
@@ -44,25 +52,28 @@ class Task extends Component {
     console.log({ event });
     this.setState({ anchorEl: null, task_status: event.target.value });
   };
-  onSubmitHandler = e => {
-    e.preventDefault();
-    this.props.updateTask(this.props.task.id, {
-      ...this.original,
-      ...this.state
-    });
-  };
+
+  // onSubmitHandler = e => {
+  //   const { original, state } = this;
+  //   console.log({ original, state });
+  //   e.preventDefault();
+  //   this.props.updateTask(this.props.task.id, {
+  //     ...this.original,
+  //     ...this.state
+  //   });
+  // };
 
   render() {
     let { task_status, task_name, task_desc, due_date, id } = this.state;
     let brdColor = "white";
     if (task_status === "Pending") {
-      brdColor = "red";
+      brdColor = "#ff3300";
     } else if (task_status == "In Progress") {
-      brdColor = "purple";
+      brdColor = "#3399ff";
     } else if (task_status == "Delayed") {
-      brdColor = "yellow";
+      brdColor = "#ffff66";
     } else if (task_status == "Completed") {
-      brdColor = "green";
+      brdColor = "#66ff66";
     }
     let brdStyle = {
       borderColor: brdColor
@@ -70,46 +81,53 @@ class Task extends Component {
     return (
       <div className="task-container">
         <div className="task" style={brdStyle}>
-          <div>
-            <h2>{task_name}</h2>
-            <p>{task_desc}</p>
-            <p>Due-Date: {due_date.slice(0, -14)}</p>
-            <p>Status: {task_status}</p>
-            <form onSubmit={this.onSubmitHandler}>
-              <div className={"statusLink"}>
-                <a
-                  value={"pending"}
-                  onClick={() => this.handleClick("Pending")}
-                >
-                  pending
-                </a>
-              </div>
-              <div className={"statusLink"}>
-                <a
-                  value={"In Progress"}
-                  onClick={() => this.handleClick("In Progress")}
-                >
-                  In Progress
-                </a>
-              </div>
-              <div className={"statusLink"}>
-                <a
-                  value={"Delayed"}
-                  onClick={() => this.handleClick("Delayed")}
-                >
-                  Delayed
-                </a>
-              </div>
-              <div className={"statusLink"}>
-                <a
-                  value={"Completed"}
-                  onClick={() => this.handleClick("Completed")}
-                >
-                  Completed
-                </a>
-              </div>
-            </form>
+          <h2>{task_name}</h2>
+          <p>{task_desc}</p>
+          <p>Due-Date: {due_date.slice(0, -14)}</p>
+          <p>Status: {task_status}</p>
+          {/* <form onSubmit={this.onSubmitHandler}> */}
+          <div className={"task-status"}>
+            <p>Change Status:</p>
           </div>
+          <div className="statusLinks">
+            <div className="statusLink">
+              <Button
+                className="statusLink__link"
+                value={"pending"}
+                onClick={() => this.handleClick("Pending")}
+              >
+                Pending
+              </Button>
+            </div>
+            <div className={"statusLink"}>
+              <Button
+                className="statusLink__link"
+                value={"In Progress"}
+                onClick={() => this.handleClick("In Progress")}
+              >
+                In Progress
+              </Button>
+            </div>
+            <div className={"statusLink"}>
+              <Button
+                className="statusLink__link"
+                value={"Delayed"}
+                onClick={() => this.handleClick("Delayed")}
+              >
+                Delayed
+              </Button>
+            </div>
+            <div className={"statusLink"}>
+              <Button
+                className="statusLink__link"
+                value={"Completed"}
+                onClick={() => this.handleClick("Completed")}
+              >
+                Completed
+              </Button>
+            </div>
+          </div>
+          {/* </form> */}
         </div>
       </div>
     );
@@ -123,5 +141,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { updateTask }
+  { updateTask, getTasks }
 )(Task);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Tooltip from "@material-ui/core/Tooltip";
+import "./AdminPanel.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -8,7 +9,7 @@ class AdminPanel extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="admin-panel">
           <h1>Overview</h1>
           <Tooltip title="Teams">
             <Link to={"/dashboard/AdminPanel/teams"}>

@@ -5,23 +5,50 @@
 .chat-container {
   color: black;
   background-color: white;
-  overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-y: auto;
+  // overflow-x: hidden;
   height: 350px;
   position: relative;
   .footer {
-    display: inline-flex;
-    // position: fixed;
-    // bottom: 0px;
-    // left: 0px;
-    width: 330px;
+    // display: inline-flex;
+    width: auto;
     color: blue;
     height: auto;
-    .form-conrol {
-      width: 330px;
+    border-radius: 20px;
+    textarea {
+      width: 500px;
     }
-    input {
-      width: 100px;
+    .form-conrol {
+      width: 500px;
+      border-radius: 20px;
+    }
+    .form-conrol {
+      height: 100px;
+      width: 500px;
+      margin-left: 50%;
     }
   }
 }
+body
+  > div.MuiModal-root-148.MuiDrawer-modal-147
+  > div.MuiPaper-root-160.MuiPaper-elevation16-178.MuiDrawer-paper-138.MuiDrawer-paperAnchorBottom-142
+  > div:nth-child(2)
+  > div.footer
+  > textarea {
+  width: 500px;
+}
+
+body
+  > div.MuiModal-root-148.MuiDrawer-modal-147
+  > div.MuiPaper-root-181.MuiPaper-elevation16-199.MuiDrawer-paper-138.MuiDrawer-paperAnchorBottom-142
+  > div:nth-child(2)
+  > div.footer
+  > textarea {
+}
+// body
+//   > div.MuiModal-root-148.MuiDrawer-modal-147
+//   > div.MuiPaper-root-160.MuiPaper-elevation16-178.MuiDrawer-paper-138.MuiDrawer-paperAnchorBottom-142
+//   > div:nth-child(2)
+//   > div.footer
+//   > button {
+// }

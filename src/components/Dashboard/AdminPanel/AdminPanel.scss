@@ -1,0 +1,10 @@
+.admin-panel {
+  color: white;
+  a {
+    color: black;
+    margin: 20px;
+    &:hover {
+      color: white;
+    }
+  }
+}

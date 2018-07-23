@@ -24,6 +24,11 @@ class Users extends Component {
     let usersList = this.props.everyone.map((user, i) => {
       return (
         <div className="user" key={user.id}>
+          <img
+            className="profilePicture"
+            src={user.profile_picture}
+            alt="User Profile Picture"
+          />
           <p>User id:{user.id}</p>
           <p>{user.first_name}</p>
           <p>{user.last_name}</p>
