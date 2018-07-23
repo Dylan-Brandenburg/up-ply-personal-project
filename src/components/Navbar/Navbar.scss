@@ -1,18 +1,60 @@
 .nav-bar {
   color: white;
   text-align: center;
-  a {
-    color: white;
-  }
-  .profilePicture {
-    width: 75px;
-    height: auto;
-  }
+
   .Navbar-logo {
     height: 100px;
     margin: auto;
   }
+  .profilePicture {
+    border-radius: 20px;
+    border: 3px solid #dedede;
+    width: 100px;
+    height: 100px;
+  }
 }
+.nav-list {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  border-top: 2px solid white;
+  .nav-menuelist {
+    color: white;
+    margin: 5px;
+    transition: 0.5s;
+    &:hover {
+      color: lightblue;
+      text-decoration: underline;
+    }
+  }
+}
+
 .navbar-chat {
-  margin-top: 100px;
+  margin-top: auto;
+  button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      to right,
+      #314755 0%,
+      #26a0da 51%,
+      #314755 100%
+    );
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #eee;
+    &:hover {
+      background-position: right center;
+      box-shadow: 0 0 0 #eee;
+      // width: 20px;
+    }
+  }
 }

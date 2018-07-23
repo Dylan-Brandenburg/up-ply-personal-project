@@ -1,0 +1,8 @@
+.teams-container {
+  color: white;
+  border-top: 3px solid #dedede; }
+  .teams-container button {
+    transition: 0.5s; }
+    .teams-container button:hover {
+      cursor: pointer;
+      border: 2px solid white; }

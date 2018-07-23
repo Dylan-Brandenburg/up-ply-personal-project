@@ -20,27 +20,26 @@ class Projects extends Component {
     let projectList = this.props.userProjects.map((project, i) => {
       console.log({ project });
       return (
-        <div key={i} className={"project-container"}>
-          <p>
-            {project.id}
-            {project.project_name}
-          </p>
+        <div key={i} className={"projects"}>
+          <p>{project.id}</p>
+          <h3>{project.project_name}</h3>
           <p> {project.project_desc}</p>
-          <p>Tasks</p>
-          <hr />
-          {this.props.tasks
-            .filter(task => task.assigned_proj_id === project.id)
-            .map(task => <p key={task.id}>{task.task_name}</p>)}
+          <div className="projects-tasks">
+            <h4>Tasks</h4>
+            {this.props.tasks
+              .filter(task => task.assigned_proj_id === project.id)
+              .map(task => <p key={task.id}>{task.task_name}</p>)}
+          </div>
         </div>
       );
     });
 
     return (
-      <div>
+      <div className="project-container">
         <div>
           <h1>My Projects</h1>
         </div>
-        <div>{projectList}</div>
+        <div className="projects-container">{projectList}</div>
       </div>
     );
   }

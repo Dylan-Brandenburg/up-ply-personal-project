@@ -1,5 +1,5 @@
 body {
-  background-color: #222a68;
+  background-color: #57344b;
   min-height: 100%; }
 
 .splash-header {
@@ -19,8 +19,6 @@ body {
     color: white;
     align-content: center;
     margin-top: 40px; }
-  .splash-header .splash-login {
-    z-index: 2; }
 
 .splash-angled {
   position: absolute;
@@ -28,7 +26,7 @@ body {
   width: 100%;
   left: 0px;
   top: 0px;
-  background: linear-gradient(#6d16a3, #574ae2);
+  background: linear-gradient(to right, #243949 0%, #517fa4 100%);
   transform: skewY(10deg);
   z-index: 1; }
 
@@ -48,7 +46,8 @@ body {
   background-color: white;
   min-height: 100vh;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center;
+  z-index: 1; }
   .splash-content .splash-background {
     display: flex;
     background-image: url("../../assets/laptop.jpg");
@@ -57,7 +56,28 @@ body {
     opacity: 0.5; }
   .splash-content span {
     color: white;
-    height: 100px;
+    height: 25px;
     margin: auto;
     width: 300px;
     z-index: 1; }
+
+.splash-login {
+  z-index: 2; }
+  .splash-login a {
+    text-decoration: none; }
+  .splash-login .login-button {
+    width: 50px; }
+  .splash-login button {
+    background: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px; }
+    .splash-login button:hover {
+      background-position: right center; }

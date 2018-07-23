@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import logo from "../../logo.png";
 import ExitToApp from "@material-ui/icons/ExitToApp";
+import Drawer from "@material-ui/core/Drawer";
+import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/ducks/userReducer";
 
@@ -12,7 +14,31 @@ import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Navbar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      top: false,
+      left: false,
+      bottom: false,
+      right: false
+    };
+  }
+  toggleDrawer = (side, open) => () => {
+    this.setState({
+      [side]: open
+    });
+  };
+
   render() {
+    const styles = {
+      list: {
+        width: 250
+      },
+      fullList: {
+        width: "auto"
+      }
+    };
+
     let first_name = this.props.user[0]
       ? this.props.user[0].first_name
       : "First";
@@ -41,51 +67,84 @@ class Navbar extends Component {
                 {"    "}
                 {last_name}
               </h3>
-
-              <div>
-                <p>{role}</p>
-              </div>
-              <hr />
+              <p>{role}</p>
               <div className="nav-list">
-                <Link to="/dashboard/view">
-                  <div>
-                    <FontAwesomeIcon icon="tachometer-alt" />Dashboard
+                <Link style={{ textDecoration: "none" }} to="/dashboard/view">
+                  <div className="nav-menuelist">
+                    <p>
+                      <FontAwesomeIcon icon="tachometer-alt" />
+                      Dashboard
+                    </p>
                   </div>
                 </Link>
-
-                <Link to="/dashboard/projects">
-                  <div>
-                    <FontAwesomeIcon icon="folder-open" />Projects
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/dashboard/projects"
+                >
+                  <div className="nav-menuelist">
+                    <p>
+                      <FontAwesomeIcon icon="folder-open" />Projects
+                    </p>
                   </div>
                 </Link>
-                <Link to="/dashboard/tasks">
-                  <div>
-                    <FontAwesomeIcon icon="clipboard-list" />Tasks
+                <Link style={{ textDecoration: "none" }} to="/dashboard/tasks">
+                  <div className="nav-menuelist">
+                    <p>
+                      <FontAwesomeIcon icon="clipboard-list" />Tasks
+                    </p>
                   </div>
                 </Link>
-                <Link to="/dashboard/settings">
-                  <div>
-                    <FontAwesomeIcon icon="cog" />Settings
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to="/dashboard/settings"
+                >
+                  <div className="nav-menuelist">
+                    <p>
+                      <FontAwesomeIcon icon="cog" />Settings
+                    </p>
                   </div>
                 </Link>
 
                 {admin == true ? (
-                  <Link to="/dashboard/AdminPanel">
-                    <div>
-                      <FontAwesomeIcon icon="toolbox" />Admin Panel
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to="/dashboard/AdminPanel"
+                  >
+                    <div className="nav-menuelist">
+                      <p>
+                        <FontAwesomeIcon icon="toolbox" />Overview
+                      </p>
                     </div>
                   </Link>
                 ) : null}
 
-                <a href="http://localhost:3001/logout">
+                <a
+                  className="nav-menuelist"
+                  href="http://localhost:3001/logout"
+                >
                   <ExitToApp />
                 </a>
               </div>
             </Grid>
           </Grid>
         </div>
+
         <div className="navbar-chat">
-          <Chat />
+          <Button onClick={this.toggleDrawer("bottom", true)}>Chat</Button>
+          <Drawer
+            anchor="bottom"
+            open={this.state.bottom}
+            onClose={this.toggleDrawer("bottom", false)}
+          >
+            <div
+              tabIndex={0}
+              role="button"
+              onClick={this.toggleDrawer("bottom", false)}
+              onKeyDown={this.toggleDrawer("bottom", false)}
+            />
+            <Chat />
+          </Drawer>
+          {/* <Chat /> */}
         </div>
       </div>
     );

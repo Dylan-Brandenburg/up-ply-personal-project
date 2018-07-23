@@ -5,32 +5,31 @@ import {
   createNewProject,
   getCurentTeamid
 } from "../../../../../../../redux/ducks/projectReducer";
-import Button from "../../../../../../Button/Button";
 
 class CreateProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newProj: this.props.newProj
-      // ...this.props.newProj
+      team_id: this.props.newProj.team_id,
+      project_desc: this.props.newProj.project_desc,
+      project_name: this.props.newProj.project_name
     };
+  }
+  componentDidMount() {
+    const { currentTeamid } = this.props;
+    console.log({ currentTeamid });
+    this.setState({ team_id: currentTeamid });
   }
   onChangeHandler = e => {
     this.setState({ newTeamName: e.target.value });
   };
   onSubmitHandler = e => {
     e.preventDefault();
-    const newTeamIdProj = {
-      ...this.state.newProj,
-      team_id: this.props.teamProjects[0].team_id
-    };
-    this.setState({ newProj: newTeamIdProj }, () => {
-      this.props.createNewProject(this.state.newProj);
-    });
+    this.props.createNewProject(this.state);
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <div>
         <h1>Create a new Project</h1>
@@ -40,19 +39,18 @@ class CreateProject extends Component {
             <form onSubmit={this.onSubmitHandler}>
               <input
                 placeholder="Project Name"
-                value={this.state.newProjproject_name}
+                value={this.state.project_name}
                 onChange={e => this.setState({ project_name: e.target.value })}
                 type="text"
               />
               <input
                 placeholder="Proj Desc"
-                value={this.state.newProj.project_desc}
+                value={this.state.project_desc}
                 onChange={e => this.setState({ project_desc: e.target.value })}
                 type="text"
               />
-              <Link to="/dashboard/adminPanel/teams">
-                <Button>Submit</Button>
-              </Link>
+
+              <button>Submit</button>
             </form>
           </div>
         </div>
@@ -63,6 +61,7 @@ class CreateProject extends Component {
 function mapStateToProps(state) {
   return {
     newProj: state.projectReducer.newProj,
+
     currentTeamid: state.projectReducer.currentTeamid
   };
 }

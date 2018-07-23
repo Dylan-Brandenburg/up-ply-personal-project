@@ -12,9 +12,14 @@
   text-decoration: none;
   color: black;
   box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
-  transition: 0.5s; }
-  .projlist-content button:hover {
-    border: 2px solid white; }
-  .projlist-content .projlist-container {
+  transition: 0.5s;
+  button {
+    &:hover {
+      border: 2px solid white;
+    }
+  }
+  .projlist-container {
     height: auto;
-    transform: 0.5s; }
+    transform: 0.5s;
+  }
+}

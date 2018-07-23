@@ -7,23 +7,21 @@ const morgan = require("morgan");
 const massive = require("massive");
 const routes = require("./routes");
 const socket = require("socket.io");
+const strategy = require("./strategy");
+const path = require("path");
+const PORT = process.env.PORT || 3001;
 
 massive(process.env.CONNECTION_STRING).then(db => {
   app.set("db", db);
 });
-
-//link to strategy.js
-const strategy = require("./strategy");
-
 const app = express();
-
-const PORT = process.env.PORT || 3001;
 server = app.listen(PORT, () => {
   console.log(`I am listening on port ${PORT}`);
 });
-
 app.use(json());
 app.use(morgan("tiny"));
+
+// app.use(express.static(__dirname + "/../build"));
 
 app.use(
   session({
@@ -105,6 +103,10 @@ app.get("/me", (req, res, next) => {
   return res.status(200).json(user);
 });
 
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../build/index.html"));
+// });
+
 //React s3
 app.use(
   "/s3",
@@ -125,8 +127,19 @@ const io = socket(server);
 io.on("connection", socket => {
   console.log(socket.id);
 
+
   socket.on("SEND_MESSAGE", function(data) {
     io.emit("RECEIVE_MESSAGE", data);
+  });
+  socket.on("USER_CONNECTED", function(name) {
+    // console.log(name.name);
+    var chatUser = name.name;
+    io.emit("THEUSER_CONNECTED", name);
+    socket.on("disconnect", function() {
+      console.log(chatUser);
+      // let leaving = "Someone has left.";
+      io.sockets.emit("disconnected", chatUser);
+    });
   });
 });
 

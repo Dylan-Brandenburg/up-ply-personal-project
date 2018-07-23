@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   getTeamProjects,
-  createNewProject
+  createNewProject,
+  getCurrentTeamid
 } from "../../../../../../redux/ducks/projectReducer";
 import { createNewTask } from "../../../../../../redux/ducks/taskReducer";
 
@@ -33,6 +34,8 @@ class Project extends Component {
     this.setState({ loading: true });
     await this.props.getTeamProjects(this.props.match.params.id);
     this.setState({ loading: false });
+    // this.props.getCurrentTeamid(this.props.teamProjects.team_id);
+    this.props.getCurrentTeamid(this.props.match.params.id);
   }
   render() {
     let projectList = !this.state.loading
@@ -40,6 +43,7 @@ class Project extends Component {
           return <ProjList key={i} project={project} />;
         })
       : "loading...";
+    console.log(this.props);
 
     return (
       <div>
@@ -67,5 +71,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { getTeamProjects, createNewTask, createNewProject }
+  { getTeamProjects, createNewTask, createNewProject, getCurrentTeamid }
 )(Project);

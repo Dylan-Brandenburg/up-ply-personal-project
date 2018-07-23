@@ -11,8 +11,8 @@ const initialState = {
   userTeam: [],
   currentTeamid: 0,
   newProj: {
-    project_name: "",
-    project_desc: "",
+    project_name: "test",
+    project_desc: "test",
     team_id: 0
   }
 };
@@ -56,10 +56,10 @@ export const userJoinTeam = id => {
   };
 };
 
-export const createNewProject = () => {
+export const createNewProject = obj => {
   return {
     type: CREATE_PROJECT,
-    payload: axios.post("/api/createProject")
+    payload: axios.post("/api/createProject", obj)
   };
 };
 export const getCurrentTeamid = currentTeamid => {
@@ -115,13 +115,11 @@ export default function projectReducer(state = initialState, action) {
       return { ...state, loading: false, newProj: action.payload.data };
     case "CREATE_PROJECT_REJECTED":
       return { ...state, loading: false, error: action.payload.data };
+
     //GETCURRENTTEAMID
-    case "GET_CURRENTTEAMID_PENDING":
-      return { ...state, loading: true };
-    case "GET_CURRENTTEAMID_FULFILLED":
-      return { ...state, loading: false, currentTeamid: action.payload.data };
-    case "GET_CURRENTTEAMID_REJECTED":
-      return { ...state, loading: false, error: action.payload.data };
+    case "GET_CURRENTTEAMID":
+      return { ...state, loading: false, currentTeamid: action.payload };
+
     default:
       return state;
   }

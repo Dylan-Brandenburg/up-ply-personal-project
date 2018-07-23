@@ -4,6 +4,7 @@ import userReducer, {
   getEveryone,
   getTeams
 } from "../../../../redux/ducks/userReducer";
+import "./Users.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import tasksReducer from "../../../../redux/ducks/taskReducer";
@@ -22,22 +23,21 @@ class Users extends Component {
   render() {
     let usersList = this.props.everyone.map((user, i) => {
       return (
-        <div key={user.id}>
+        <div className="user" key={user.id}>
           <p>User id:{user.id}</p>
           <p>{user.first_name}</p>
           <p>{user.last_name}</p>
           <p>{user.role}</p>
           <p>{user.email}</p>
           <p>{user.admin}</p>
-          <hr />
         </div>
       );
     });
 
     return (
-      <div>
+      <div className="users-container">
         <h1>Users</h1>
-        <div>{usersList}</div>
+        <div className="users-list">{usersList}</div>
       </div>
     );
   }

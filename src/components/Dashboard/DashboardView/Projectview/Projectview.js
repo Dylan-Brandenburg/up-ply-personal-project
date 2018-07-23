@@ -13,12 +13,10 @@ class Projectview extends Component {
     let projectList = this.props.userProjects.reverse().map((projects, id) => {
       if (id < 4) {
         return (
-          <div key={id}>
-            <p>
-              {projects.project_name}
-              {projects.project_desc}
-              {projects.team_id}
-            </p>
+          <div className="projectview-cards" key={id}>
+            <h3>{projects.project_name}</h3>
+            <p>{projects.project_desc}</p>
+            <p>{projects.team_id}</p>
           </div>
         );
       }

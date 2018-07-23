@@ -9,28 +9,25 @@ class Tasksview extends Component {
   }
   render() {
     let taskList = [];
+    console.log(this.props);
 
     taskList = this.props.tasks.reverse().map((task, id) => {
       if (id < 4) {
         return (
-          <div key={id}>
-            <p>
-              {id}
-              {task.task_name}
-              {task.task_desc}
-              {task.status}
-            </p>
+          <div className="taskview-cards" key={id}>
+            {/* <p>{id}</p> */}
+            <h3>{task.task_name}</h3>
+            <p>{task.task_desc}</p>
+            <p>{task.task_status}</p>
           </div>
         );
       }
     });
 
     return (
-      <div className="Taskview-body">
-        <div>
-          <h1>Recent tasks </h1>
-          <div>{taskList}</div>
-        </div>
+      <div className="taskview-body">
+        <h1>Recent tasks </h1>
+        <div>{taskList}</div>
       </div>
     );
   }

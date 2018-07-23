@@ -30,7 +30,7 @@ class Dashboard extends Component {
           </Grid>
           <Grid item xs={9}>
             <div className="top-bar">
-              <h1 align={"center"}>Team Name</h1>
+              <h1 align={"center"}>Organization</h1>
             </div>
             <Grid container spacing={0}>
               <Grid item xs={12} className={"view-container"}>

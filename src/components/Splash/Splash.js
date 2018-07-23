@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import logo from "../../logo.png";
 import "./Splash.css";
+import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
-import Button from "../Button/Button";
 
 export default class Splash extends Component {
   render() {
@@ -17,16 +17,22 @@ export default class Splash extends Component {
             {" "}
             <h1> UP-Ply</h1>
           </div>
-          <div className="splash-login">
-            <a href="http://localhost:3001/login">
-              <button>Login</button>
-            </a>
-          </div>
         </div>
         <div className="splash-content">
           {/* <div className="splash-background" /> */}
           <span />
+          <div className="splash-login">
+            <a href="http://localhost:3001/login">
+              <Button className="login-button">Login</Button>
+            </a>
+            <div>
+              <p>What is UP-Ply?</p>
+              <p>UP-Ply is a team based project management system.</p>
+            </div>
+          </div>
+
           <span />
+
           <span />
         </div>
         <div className="splash-angled"> </div>

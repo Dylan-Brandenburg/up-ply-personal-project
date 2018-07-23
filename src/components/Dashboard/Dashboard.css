@@ -1,11 +1,11 @@
-/* HSL */
-/* RGB */
 .dashboard-container {
-  background-color: #6d16a3; }
-  .dashboard-container .nav-container {
-    background-color: #6d16a3; }
+  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  padding: 10px;
+  min-height: 100vh;
+  max-height: 100%; }
   .dashboard-container .top-bar {
     color: white; }
   .dashboard-container .view-container {
-    background-color: #ab81cd;
-    padding: 50px; }
+    border-radius: 20px;
+    padding: 25px;
+    background-image: linear-gradient(to right, #345269 0%, #517fa4 100%); }

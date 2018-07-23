@@ -1,16 +1,12 @@
-/* HSL */
-$color1: hsla(277%, 76%, 36%, 1);
-$color2: hsla(245%, 72%, 59%, 1);
-$color3: hsla(233%, 51%, 27%, 1);
-$color4: hsla(273%, 43%, 65%, 1);
-$color5: hsla(286%, 73%, 81%, 1);
-
 /* RGB */
-$color1: rgba(109, 22, 163, 1);
-$color2: rgba(87, 74, 226, 1);
-$color3: rgba(34, 42, 104, 1);
-$color4: rgba(171, 129, 205, 1);
-$color5: rgba(226, 173, 242, 1);
+$color1: #0a0a14;
+$color2: #2d304d;
+$color3: #57344b;
+$color4: #1840b6;
+$color5: #8e9390;
+$color6: #c4c3ca;
+$color7: #96325e;
+$color8: #9b2f9c;
 .App {
   text-align: center;
   background-color: $color3;

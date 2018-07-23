@@ -1,11 +1,11 @@
-// .Teamcontainer {
-//   display: inline-flex;
-//   flex-direction: row;
-//   justify-content: space-around;
-//   align-content: center;
-//   float: left;
-//   .Teamlist {
-//     display: inline-block;
-//     margin: auto;
-//   }
-// }
+.teams-container {
+  color: white;
+  border-top: 3px solid #dedede;
+  button {
+    transition: 0.5s;
+    &:hover {
+      cursor: pointer;
+      border: 2px solid white;
+    }
+  }
+}

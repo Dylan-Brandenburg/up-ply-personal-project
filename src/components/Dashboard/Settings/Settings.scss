@@ -1,4 +1,51 @@
-.profilePicture {
-  height: auto;
-  width: 75px;
+.user-settings-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 5px;
+  .profilePicture {
+    border-radius: 20px;
+    border: 3px solid #dedede;
+    width: auto;
+    height: 200px;
+  }
+  h1 {
+    padding-left: 10px;
+  }
+}
+.user-list {
+  display: flex;
+  list-style: none;
+  text-transform: capitalize;
+  justify-content: space-around;
+  button {
+    // background: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    // background: #517fa4;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px #eee;
+    border: 2px solid white;
+    &:hover {
+      background-position: right center;
+      box-shadow: 0 1px 10px #eee;
+    }
+  }
+  ul {
+    display: inline-block;
+    list-style: none;
+    text-transform: capitalize;
+  }
+  li {
+    list-style: none;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    text-align: left;
+  }
 }

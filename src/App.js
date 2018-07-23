@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 import { Tab } from "@material-ui/core";
 import { library } from "@fortawesome/fontawesome-svg-core";

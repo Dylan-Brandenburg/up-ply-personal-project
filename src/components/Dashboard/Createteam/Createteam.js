@@ -22,22 +22,19 @@ class Createteam extends Component {
   render() {
     return (
       <div>
-        <h1>Create a team</h1>
         <div>
-          <div>
-            <h4>What would you like to call your team?</h4>
-            <form onSubmit={this.onSubmitHandler}>
-              <input
-                placeholder="Team Name"
-                value={this.state.newTeamName}
-                onChange={e => this.setState({ newTeamName: e.target.value })}
-                type="text"
-              />
-            </form>
-            <Link to="/dashboard/teams">
-              <Button>Submit</Button>
-            </Link>
-          </div>
+          <p>What would you like to call your team?</p>
+          <form onSubmit={this.onSubmitHandler}>
+            <input
+              placeholder="Team Name"
+              value={this.state.newTeamName}
+              onChange={e => this.setState({ newTeamName: e.target.value })}
+              type="text"
+            />
+            {/* <Link to="/dashboard/teams"> */}
+            <Button onClick={e => this.onSubmitHandler(e)}>Submit</Button>
+            {/* </Link> */}
+          </form>
         </div>
       </div>
     );
