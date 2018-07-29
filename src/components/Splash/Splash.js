@@ -22,7 +22,8 @@ export default class Splash extends Component {
           {/* <div className="splash-background" /> */}
           <span />
           <div className="splash-login">
-            <a href="http://localhost:3001/login">
+            {/* <a href="http://localhost:3001/login"> */}
+            <a href={process.env.REACT_APP_LOGIN}>
               <Button className="login-button">Login</Button>
             </a>
             <div>

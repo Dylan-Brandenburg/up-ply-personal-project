@@ -21,7 +21,7 @@ server = app.listen(PORT, () => {
 app.use(json());
 app.use(morgan("tiny"));
 
-// app.use(express.static(__dirname + "/../build"));
+app.use(express.static(__dirname + "/../build"));
 
 app.use(
   session({
@@ -59,13 +59,13 @@ function logger(req, res, next) {
   next();
 }
 
-function isLoggedIn(req, res, next) {
-  if (req.user) {
-    next();
-  } else {
-    res.redirect("http://localhost:3000");
-  }
-}
+// function isLoggedIn(req, res, next) {
+//   if (req.user) {
+//     next();
+//   } else {
+//     res.redirect("http://localhost:3000");
+//   }
+// }
 
 app.get("/login", (req, res, next) => {
   passport.authenticate("auth0", (err, user, info) => {
@@ -83,19 +83,21 @@ app.get("/login", (req, res, next) => {
           })
           .then(newUser => {
             req.session.user = newUser;
-            return res.redirect("http://localhost:3000/#/dashboard/view");
+            return res.redirect(process.env.REACT_APP_DEV_HOST_LOGIN);
+            // return res.redirect("http://localhost:3000/#/dashboard/view");
           });
       } else {
         req.session.user = dbUser;
-        return res.redirect("http://localhost:3000/#/dashboard/view");
+        // return res.redirect("http://localhost:3000/#/dashboard/view");
+        return res.redirect(process.env.REACT_APP_DEV_HOST_LOGIN);
       }
     });
   })(req, res, next);
 });
 
-app.get("/logout", isLoggedIn, (req, res, next) => {
+app.get("/logout", (req, res, next) => {
   req.session.destory();
-  res.redirect("http://localhost:3000/#/");
+  res.redirect(process.env.REACT_APP_DEV_HOST);
 });
 
 app.get("/me", (req, res, next) => {
@@ -103,9 +105,9 @@ app.get("/me", (req, res, next) => {
   return res.status(200).json(user);
 });
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 //React s3
 app.use(

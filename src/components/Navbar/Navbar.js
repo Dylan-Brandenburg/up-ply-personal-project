@@ -120,7 +120,7 @@ class Navbar extends Component {
 
                 <a
                   className="nav-menuelist"
-                  href="http://localhost:3001/logout"
+                  href={process.env.REACT_APP_LOGOUT}
                 >
                   <ExitToApp />
                 </a>
