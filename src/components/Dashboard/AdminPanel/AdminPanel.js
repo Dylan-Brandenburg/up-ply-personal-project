@@ -13,12 +13,12 @@ class AdminPanel extends Component {
           <h1>Overview</h1>
           <Tooltip title="Teams">
             <Link to={"/dashboard/AdminPanel/teams"}>
-              <FontAwesomeIcon icon="users" />
+              <FontAwesomeIcon size="2x" icon="users" />
             </Link>
           </Tooltip>
           <Tooltip title="Users">
             <Link to={"/dashboard/AdminPanel/users"}>
-              <FontAwesomeIcon icon="user-cog" />
+              <FontAwesomeIcon size="2x" icon="user-cog" />
             </Link>
           </Tooltip>
         </div>

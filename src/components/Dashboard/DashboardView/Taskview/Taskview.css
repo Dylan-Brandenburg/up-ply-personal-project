@@ -1,10 +1,9 @@
 .taskview-body {
-  color: white;
+  color: black;
   min-height: 35vh;
   height: 100%;
   width: auto;
-  border-top: 2px solid whitesmoke;
-  justify-content: space-around;
+  border-top: 5px solid whitesmoke;
   flex-direction: row;
   flex-wrap: wrap; }
   .taskview-body .tasks_list {
@@ -15,7 +14,7 @@
     box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
     padding: 5px;
     border: 3px solid #dedede;
-    color: white;
+    color: black;
     justify-content: space-around;
     width: 175px;
     min-height: 175px;

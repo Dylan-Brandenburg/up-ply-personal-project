@@ -15,7 +15,8 @@ import {
   faTrashAlt,
   faPlus,
   faToolbox,
-  faUserCog
+  faUserCog,
+  faComment
 } from "@fortawesome/free-solid-svg-icons";
 
 import store from "./redux/store";
@@ -30,7 +31,8 @@ library.add(
   faPlus,
   faToolbox,
   faUsers,
-  faUserCog
+  faUserCog,
+  faComment
 );
 class App extends Component {
   // const { REACT_APP_CLIENT_HOST } = process.env;

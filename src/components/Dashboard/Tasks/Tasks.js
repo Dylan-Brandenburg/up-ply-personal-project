@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTasks } from "../../../redux/ducks/taskReducer";
 import Task from "./Task/Task";
-import Tasksview from "../DashboardView/Taskview/Taskview";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./Tasks.css";
 
 class Tasks extends Component {

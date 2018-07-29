@@ -16,7 +16,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 });
 const app = express();
 server = app.listen(PORT, () => {
-  console.log(`I am listening on port ${PORT}`);
+  console.log(`I am Here on port ${PORT}`);
 });
 app.use(json());
 app.use(morgan("tiny"));
@@ -126,7 +126,6 @@ const io = socket(server);
 
 io.on("connection", socket => {
   console.log(socket.id);
-
 
   socket.on("SEND_MESSAGE", function(data) {
     io.emit("RECEIVE_MESSAGE", data);

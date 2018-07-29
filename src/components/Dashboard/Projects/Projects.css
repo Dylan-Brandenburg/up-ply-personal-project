@@ -1,5 +1,5 @@
 .project-container {
-  color: white; }
+  color: black; }
   .project-container .projects-container {
     border-top: 3px solid #dedede;
     padding: 15px;
@@ -21,7 +21,7 @@
     .project-container .projects:hover {
       box-shadow: 10px 10px 10px 0 rgba(7, 7, 7, 0.26); }
     .project-container .projects .projects-tasks {
-      color: white; }
+      color: black; }
       .project-container .projects .projects-tasks h4 {
         border-bottom: 2px solid white;
         width: 50%;

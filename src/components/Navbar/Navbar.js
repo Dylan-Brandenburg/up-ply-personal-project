@@ -130,7 +130,17 @@ class Navbar extends Component {
         </div>
 
         <div className="navbar-chat">
-          <Button onClick={this.toggleDrawer("bottom", true)}>Chat</Button>
+          <Button onClick={this.toggleDrawer("bottom", true)}>
+            <FontAwesomeIcon
+              className="chat-icon"
+              style={{
+                textShadow: "0 1px 0 rgba(0, 0, 0, 0.1)"
+              }}
+              size="2x"
+              onClick={this.toggleDrawer("bottom", true)}
+              icon="comment"
+            />
+          </Button>
           <Drawer
             anchor="bottom"
             open={this.state.bottom}

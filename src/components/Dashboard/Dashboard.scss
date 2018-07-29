@@ -1,29 +1,18 @@
-$color1: #0a0a14;
-$color2: #2d304d;
-$color3: #57344b;
-$color4: #1840b6;
-$color5: #8e9390;
-$color6: #c4c3ca;
-$color7: #96325e;
-$color8: #9b2f9c;
-.dashboard-container {
+.nav-container {
   background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
   padding: 10px;
   min-height: 100vh;
   max-height: 100%;
+  border-right: 3px solid grey;
+  border-top-right-radius: 20px;
 
-  .top-bar {
-    color: white;
-  }
-  .view-container {
-    // background: #2d304d;
-    // border: solid 2px #96325e;
-    border-radius: 20px;
-    padding: 25px;
-    background-image: linear-gradient(
-      to right,
-      rgb(52, 82, 105) 0%,
-      #517fa4 100%
-    );
-  }
+  // .top-bar {
+  //   color: #ffffff;
+  //   margin-top: 20px;
+  // }
+}
+.view-container {
+  padding-top: 20px;
+  border-radius: 20px;
+  padding: 25px;
 }

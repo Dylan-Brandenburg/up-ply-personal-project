@@ -1,21 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import Fade from "@material-ui/core/Fade";
 import { connect } from "react-redux";
 import { updateTask, getTasks } from "../../../../redux/ducks/taskReducer";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-//Start of  radio select options
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-//End of radio select options
 
 import "./Task.css";
 
@@ -52,16 +38,6 @@ class Task extends Component {
     console.log({ event });
     this.setState({ anchorEl: null, task_status: event.target.value });
   };
-
-  // onSubmitHandler = e => {
-  //   const { original, state } = this;
-  //   console.log({ original, state });
-  //   e.preventDefault();
-  //   this.props.updateTask(this.props.task.id, {
-  //     ...this.original,
-  //     ...this.state
-  //   });
-  // };
 
   render() {
     let { task_status, task_name, task_desc, due_date, id } = this.state;
