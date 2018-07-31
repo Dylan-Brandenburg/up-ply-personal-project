@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import logo from "../../logo.png";
 import "./Splash.css";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
 
 export default class Splash extends Component {
   render() {

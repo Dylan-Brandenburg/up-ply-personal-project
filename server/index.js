@@ -21,7 +21,7 @@ server = app.listen(PORT, () => {
 app.use(json());
 app.use(morgan("tiny"));
 
-app.use(express.static(__dirname + "/../build"));
+app.use(express.static(path.join(__dirname, "../build")));
 
 app.use(
   session({
@@ -58,6 +58,8 @@ function logger(req, res, next) {
   });
   next();
 }
+
+routes(app);
 
 // function isLoggedIn(req, res, next) {
 //   if (req.user) {
@@ -145,4 +147,3 @@ io.on("connection", socket => {
 });
 
 //End of Socket.io Chat
-routes(app);
