@@ -6,9 +6,9 @@
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  border-radius: 20px;
+  // border-radius: 20px;
   .projects__list {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-around;
     .projectview-cards {
@@ -16,7 +16,6 @@
       padding: 5px;
       border: 3px solid #dedede;
       color: black;
-      // display: inline-block;
       width: 175px;
       height: 175px;
       margin: 5px;

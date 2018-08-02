@@ -5,10 +5,9 @@
   width: auto;
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
-  border-radius: 20px; }
+  flex-direction: row; }
   .Projectview-body .projects__list {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-around; }
     .Projectview-body .projects__list .projectview-cards {

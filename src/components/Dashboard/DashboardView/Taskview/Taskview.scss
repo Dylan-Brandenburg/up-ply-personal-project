@@ -1,13 +1,15 @@
 .taskview-body {
+  border-top: 5px solid whitesmoke;
   color: black;
   min-height: 35vh;
   height: 100%;
   width: auto;
-  border-top: 5px solid whitesmoke;
-  flex-direction: row;
-  flex-wrap: wrap;
+  // display: flex;
+  // justify-content: space-around;
+  // flex-direction: column;
+  // flex-wrap: wrap;
   .tasks_list {
-    display: flex;
+    display: inline-flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
@@ -15,18 +17,13 @@
     box-shadow: 5px 5px 5px 0 rgba(7, 7, 7, 0.26);
     padding: 5px;
     border: 3px solid #dedede;
-    // border-style: outset;
     color: black;
-    justify-content: space-around;
     width: 175px;
-    // width: auto;
     min-height: 175px;
     height: 175px;
     margin: 5px;
     border-radius: 20px;
     align-items: center;
-    border-radius: 20px;
-    display: inline-block;
     flex-wrap: wrap;
   }
 }

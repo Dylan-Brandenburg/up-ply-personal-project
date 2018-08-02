@@ -98,7 +98,8 @@ app.get("/login", (req, res, next) => {
 });
 
 app.get("/logout", (req, res, next) => {
-  req.session.destory();
+  // req.session.destory();
+  req.session = null;
   res.redirect(process.env.REACT_APP_DEV_HOST);
 });
 

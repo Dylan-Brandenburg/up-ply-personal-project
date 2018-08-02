@@ -71,7 +71,7 @@ export const getCurrentTeamid = currentTeamid => {
 
 export default function projectReducer(state = initialState, action) {
   const { type } = action;
-  console.log({ state, type });
+  // console.log({ state, type });
   switch (action.type) {
     // Projects from user on session
     case "GET_USERPROJECTS_PENDING":

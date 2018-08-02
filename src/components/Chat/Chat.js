@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import StayScrolled from "react-stay-scrolled";
 import io from "socket.io-client";
 import { getUser } from "../../redux/ducks/userReducer";
 import Button from "@material-ui/core/Button";
 
 import "./Chat.css";
-import axios from "axios";
 
 class Chat extends React.Component {
   constructor(props) {
@@ -16,13 +14,11 @@ class Chat extends React.Component {
       message: "",
       messages: []
     };
-
+    // Sockets
     this.socket = io("localhost:3001");
-
     this.socket.on("RECEIVE_MESSAGE", function(data) {
       addMessage(data);
     });
-
     this.socket.on("THEUSER_CONNECTED", function(data) {
       const newUser = {
         author: data.name,
@@ -32,13 +28,10 @@ class Chat extends React.Component {
     });
 
     const addMessage = data => {
-      console.log(data);
       this.setState({ messages: [...this.state.messages, data] });
-      console.log(this.state.messages);
     };
     // socket discconnect
     this.socket.on("disconnected", function(ChatUser) {
-      console.log(ChatUser);
       const newUser = {
         author: ChatUser,
         message: "Left"
@@ -46,21 +39,22 @@ class Chat extends React.Component {
       addMessage(newUser);
     });
     //end of disconnect
-
     this.sendMessage = ev => {
       ev.preventDefault();
       this.socket.emit("SEND_MESSAGE", {
-        // author: this.state.username,
         author: this.props.user[0] ? this.props.user[0].first_name : "Anon",
         message: this.state.message
       });
       this.setState({ message: "" });
     };
   }
+  //end of sockets
   scrollToBottom = () => {
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   };
-
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
   componentDidMount() {
     this.props.getUser().then(() => {
       this.socket.emit("USER_CONNECTED", {
@@ -70,27 +64,21 @@ class Chat extends React.Component {
     this.scrollToBottom();
   }
 
-  componentDidUpdate() {
-    this.scrollToBottom();
-    console.log(this.props.user);
-  }
-  comp;
   render() {
     return (
-      <div>
-        <div className="chatTitle">Team Chat</div>
-        <div className="chat-container">
-          <hr />
-          <div className="messages">
-            {this.state.messages.map(message => {
-              return (
-                <div>
-                  {message.author}: {message.message}
-                  {console.log(message.message)}
-                </div>
-              );
-            })}
-          </div>
+      <div className="chat__container">
+        <div className="chat__title">
+          <h4>Team Chat</h4>
+        </div>
+
+        <div className="chat__messages">
+          {this.state.messages.map(message => {
+            return (
+              <div>
+                {message.author}: {message.message}
+              </div>
+            );
+          })}
           <div
             style={{ float: "left", clear: "both" }}
             ref={el => {
@@ -98,15 +86,22 @@ class Chat extends React.Component {
             }}
           />
         </div>
-        <div className="footer">
+        <div className="chat__newMessage">
           <textarea
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "2px solid grey",
+              borderRadius: "10px"
+            }}
             type="text"
             placeholder="Message"
-            className="form-control"
+            className="chat__newMessage__input"
             value={this.state.message}
             onChange={ev => this.setState({ message: ev.target.value })}
           />
-          <br />
+        </div>
+        <div className="chat__footer">
           <Button
             onClick={this.sendMessage}
             className="btn btn-primary form-control"
