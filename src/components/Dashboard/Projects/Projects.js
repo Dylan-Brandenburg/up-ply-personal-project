@@ -10,15 +10,11 @@ class Projects extends Component {
     this.state = {};
   }
   componentDidMount() {
-    this.props.getUserProjects().then(() => {
-      console.log(this.props);
-    });
+    this.props.getUserProjects().then(() => {});
   }
   render() {
     let { task_name, assigned_proj_id } = this.props.tasks;
-    console.log(this.props.tasks);
     let projectList = this.props.userProjects.map((project, i) => {
-      console.log({ project });
       return (
         <div key={i} className={"projects"}>
           <p>{project.id}</p>

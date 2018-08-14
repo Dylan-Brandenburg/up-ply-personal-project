@@ -44,18 +44,10 @@ class Settings extends Component {
   //React s3 picture upload
   onPictureUpload = s3 => {
     this.setState({
-      profile_picture: `https://s3.us-east-2.amazonaws.com/upply-userprofile/${
-        s3.filename
-      }`
+      profile_picture: process.env.REACT_APP_DEV_S3_URL + s3.filename
     });
-    {
-      console.log(this.state.profile_picture);
-    }
   };
   render() {
-    {
-      console.log(this.props.user);
-    }
     let { last_name, first_name, email, role, profile_picture } = this.state;
 
     return (
@@ -68,40 +60,10 @@ class Settings extends Component {
             alt="User Profile Picture"
           />
           <ul>
-            {/* <li>
-              <img
-                className="profilePicture"
-                src={this.state.profile_picture}
-                alt="User Profile Picture"
-              />
-            </li> */}
             <li>First Name: {first_name} </li>
             <li>Last Name: {last_name}</li>
             <li>email: {email} </li>
             <li>role: {role} </li>
-            {/* removing s3 uploader and adding to dialog box-keeping for failsafe */}
-            {/* <form onSubmit={this.onSubmitHandler}>
-              <label className="ProfileCreate__uploader">
-                UPLOAD
-                <ReactS3Uploader
-                  signingUrl="/s3/sign"
-                  signingUrlMethod="GET"
-                  accept="image/*"
-                  s3path=""
-                  onProgress={this.progress}
-                  onFinish={this.onPictureUpload}
-                  contentDisposition="auto"
-                  scrubFilename={filename =>
-                    filename.replace(/[^\w\d_\-.]+/gi, "")
-                  }
-                  inputRef={cmp => (this.uploadInput = cmp)}
-                  server={process.env.REACT_APP_DEV_HOST}
-                  autoUpload
-                />
-              </label>
-              <button> Submit</button>
-            </form> */}
-            {/* End of s3 uploader */}
 
             {/* //Start of Form dialog */}
             <div>

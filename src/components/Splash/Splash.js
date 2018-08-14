@@ -11,10 +11,7 @@ export default class Splash extends Component {
           <div className="splash-logo">
             <img src={logo} className="App-logo" alt="logo" />
           </div>
-          <div className="splash-headerText">
-            {" "}
-            <h1> UP-Ply</h1>
-          </div>
+          <div className="splash-headerText"> {/* <h1> UP-Ply</h1> */}</div>
         </div>
         <div className="splash-content">
           {/* <div className="splash-background" /> */}
@@ -29,7 +26,6 @@ export default class Splash extends Component {
               <p>UP-Ply is a team based project management system.</p>
             </div>
           </div>
-
           <span />
 
           <span />

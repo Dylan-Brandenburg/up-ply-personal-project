@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import Splash from "./components/Splash/Splash";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AdminPanel from "./components/Dashboard/AdminPanel/AdminPanel";
-import Team from "./components/Dashboard/AdminPanel/Teams/Team/Team";
 import Projects from "./components/Dashboard/Projects/Projects";
 import Tasks from "./components/Dashboard/Tasks/Tasks";
 import Teams from "./components/Dashboard/AdminPanel/Teams/Teams";

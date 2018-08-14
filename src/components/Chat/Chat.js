@@ -28,7 +28,13 @@ class Chat extends React.Component {
     });
 
     const addMessage = data => {
-      this.setState({ messages: [...this.state.messages, data] });
+      const messagesWithNewMessage = [...this.state.messages, data];
+      const messagesWithIds = messagesWithNewMessage.map((message, index) => ({
+        ...message,
+        index
+      }));
+      this.setState({ messages: messagesWithIds });
+      console.log(this.state.messages);
     };
     // socket discconnect
     this.socket.on("disconnected", function(ChatUser) {
@@ -74,7 +80,7 @@ class Chat extends React.Component {
         <div className="chat__messages">
           {this.state.messages.map(message => {
             return (
-              <div>
+              <div key={message.index}>
                 {message.author}: {message.message}
               </div>
             );
